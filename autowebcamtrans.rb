@@ -40,7 +40,7 @@ class AutoWebcamTrans
   def shoot(filename)
     shootLog = `#{@fswebcam} -S #{@skipframes} #{filename}`
 
-    @logger.info(shootlog)
+    @logger.info(shootLog)
   end
 
   def scpTransfer(filename)
