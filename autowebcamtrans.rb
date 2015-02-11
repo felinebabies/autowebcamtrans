@@ -22,7 +22,7 @@ class AutoWebcamTrans
     @scriptdir = File.expand_path(File.dirname(__FILE__))
   end
 
-  def exec(fileName)
+  def exec(fileName = nil)
     if fileName == nil then
       imgDir = File.join(@scriptdir, "img/")
       # 現在時刻を元に一時ファイル名を作る
