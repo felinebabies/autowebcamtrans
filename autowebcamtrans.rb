@@ -29,7 +29,7 @@ class AutoWebcamTrans
       fileName = DateTime.now.strftime("%Y-%m-%d-%H_%M_%S.jpg")
       fileName = File.join(imgDir, fileName)
     end
-    
+
     # 撮影
     shoot(fileName)
 
@@ -63,4 +63,12 @@ class AutoWebcamTrans
 
     @logger.info("Upload #{filename} success.")
   end
+end
+
+# 自身を実行した場合にのみ起動
+if __FILE__ == $PROGRAM_NAME then
+  logger = Logger.new('log/webcam.log', 0, 5 * 1024 * 1024)
+  webcam = AutoWebcamTrans.new(logger)
+
+  webcam.exec
 end
